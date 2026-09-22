@@ -40,4 +40,4 @@ private:
     float modeTimer_ = 0.0f;
 };
 
-} // namespace pacman
+} 
