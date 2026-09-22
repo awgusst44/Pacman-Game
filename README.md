@@ -1,6 +1,5 @@
 # Pacman
 
-## Denumirea proiectului
 **Pacman** — recreare a jocului arcade clasic Pacman, implementată în C++.
 
 ## Descrierea proiectului / regulile jocului
