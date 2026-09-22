@@ -8,21 +8,16 @@ namespace pacman {
 class Renderer;
 class Listener;
 
-// Central class that owns the game state and advances it over time.
 class GameEngine {
 public:
     GameEngine();
 
-    // Loads/generates the maze and resets player/ghosts to their starting state.
     void initialize();
 
-    // Advances the game logic by one time step (deltaTime in seconds).
     void update(float deltaTime);
 
-    // Applies a direction change requested by the Listener.
     void handleInput(Direction requestedDirection);
 
-    // Accessors used by the Renderer to draw the current state.
     const Maze& getMaze() const { return maze_; }
     const Player& getPlayer() const { return player_; }
     const std::vector<Ghost>& getGhosts() const { return ghosts_; }
