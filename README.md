@@ -54,7 +54,42 @@ Reguli de bază:
 g++ -std=c++17 main.cpp -o pacman
 ```
 ##Laborator 2
-## Secțiunea compilator
+## Construirea proiectului
+
+### Cerințe
+- Compilator C++17 (MSVC din Visual Studio sau g++)
+- CMake 3.16 sau mai nou
+
+### Pași
+```bash
+git clone <url-repozitoriu>
+cd <nume-repozitoriu>
+git checkout lab02
 cmake -S . -B build
 cmake --build build --config Debug
+```
+
+### Rulare
+Pe Windows:
+```bash
+.\build\Debug\Pacman.exe
+```
+
+Pe Linux / macOS:
+```bash
+./build/Pacman
+```
+
+### Comenzi în joc
+`w` / `a` / `s` / `d` + Enter pentru mișcare, Enter simplu pentru a continua, `q` pentru ieșire.
+
+### Compilarea manuală a unui fișier în fișier obiect
+Cu MSVC (în Developer PowerShell):
+```bash
+cl /std:c++17 /EHsc /Iinclude /c src\GameEngine.cpp /Fosrc\GameEngine.obj
+```
+Cu g++:
+```bash
+g++ -std=c++17 -Iinclude -c src/GameEngine.cpp -o src/GameEngine.o
+```
 
