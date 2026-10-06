@@ -53,3 +53,8 @@ Reguli de bază:
 ```bash
 g++ -std=c++17 main.cpp -o pacman
 ```
+##Laborator 2
+## Secțiunea compilator
+cmake -S . -B build
+cmake --build build --config Debug
+
