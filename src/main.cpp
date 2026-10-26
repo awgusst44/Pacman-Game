@@ -1,29 +1,24 @@
-#include "GameEngine.hpp"
-#include "Listener.hpp"
-#include "Renderer.hpp"
+#include <iostream>
+#include "Position.hpp"
+#include "PacmanEntity.hpp"
 
 int main() {
-    pacman::GameEngine engine;
-    pacman::Renderer renderer;
-    pacman::Listener listener;
+    // Test constructori și afișare (<<)
+    Position p1(5, 10);
+    PacmanEntity player("Pacman", p1, 100);
 
-    engine.initialize();
-    renderer.initialize();
+    std::cout << player << "\n";
 
-    // Joc pe ture: fiecare comanda introdusa = un pas de simulare (1 secunda).
-    while (engine.isRunning()) {
-        renderer.render(engine);
+    // Test randare (Cerința 7)
+    player.render();
 
-        listener.poll();
-        if (listener.wasQuitRequested()) {
-            break;
-        }
+    // Test operator de atribuire și copiere
+    Position p2;
+    p2 = p1;
 
-        engine.handleInput(listener.getRequestedDirection());
-        engine.update(1.0f);
+    if (p1 == p2) {
+        std::cout << "Pozițiile sunt egale!\n";
     }
 
-    renderer.render(engine); // ultimul cadru (Won / Lost)
-    renderer.shutdown();
     return 0;
 }
